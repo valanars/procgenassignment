@@ -8,9 +8,7 @@ public class PfScript : MonoBehaviour {
 
 	public Transform floorPrefab;
 
-	public Transform pathmakerSpherePF;
-
-	private List<Transform> allPMs = new List<Transform>();
+	public Transform pathmakerPrefab;
 	
 	// Use this for initialization
 	void Start ()
@@ -31,10 +29,11 @@ public class PfScript : MonoBehaviour {
 				transform.Rotate(0f, -90f, 0f);
 			} else if (counter <= 0.99f)
 			{
-				Transform newPmClone = (Transform) Instantiate(pathmakerSpherePF, Random.insideUnitSphere, Random.rotation);
+				Instantiate(pathmakerPrefab);
 			}
 			Instantiate(floorPrefab);
 			//move...pf...5 units forward
+			transform.Translate(0, 0, 5, Space.World);
 			counter++;
 		}
 		else
