@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class PfScript : MonoBehaviour {
@@ -18,27 +19,26 @@ public class PfScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if (counter < 50)
 		{
 			counter = Random.Range(0.0f, 1.0f);
-			if (counter <= 0.25f)
+			if (counter <= 0.50f)
 			{
 				transform.Rotate(0f, 90f, 0f);
-			} else if (counter > 0.25f && counter <= 0.50f)
+			} else if (counter > 0.25f && counter <= 0.90f)
 			{
 				transform.Rotate(0f, -90f, 0f);
-			} else if (counter <= 0.99f)
+			} else if (counter >= 0.99f)
 			{
-				Instantiate(pathmakerPrefab);
+				Instantiate(pathmakerPrefab, transform.position, transform.rotation);
 			}
-			Instantiate(floorPrefab);
-			//move...pf...5 units forward
-			transform.Translate(0, 0, 5, Space.World);
+			transform.Translate(0, 0, 5);
+			Instantiate(floorPrefab, transform.position, transform.rotation);
 			counter++;
-		}
-		else
+		} else if (counter >= 50)
 		{
-			Destroy(this.gameObject);
+			Destroy(gameObject);
 		}
 	}
 }
