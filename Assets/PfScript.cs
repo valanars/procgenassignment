@@ -1,63 +1,61 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class PfScript : MonoBehaviour {
 
 	private float counter = 0;
 
-	public Transform floorPrefab;
+	private float maxTiles;
+
+	private float range = 0;
 
 	public Transform pathmakerPrefab;
 
 	public float speed = 5f;
 
-	public int pathCounter = 0;
-
 	public static int globalTileCount = 0;
+
+	public Transform[] tiles;
 	
 	// Use this for initialization
 	void Start ()
 	{
-	
+		maxTiles = Random.Range(1, 100);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (pathCounter <= 7 && counter < 50)
+		if (globalTileCount < 1000 && counter < 50)
 		{
+			range = Random.Range(0.0f, 1.0f); //start mcfuckin going
+			if (range <= 0.10f)
 			{
-				counter = Random.Range(0.0f, 1.0f); //start mcfuckin going
-				if (counter <= 0.50f)
-				{
-					transform.Rotate(0f, 90f, 0f);
-				} else if (counter > 0.25f && counter <= 0.90f)
-				{
-					transform.Rotate(0f, -90f, 0f);
-				} else if (counter >= 0.99f) //VERY SMALL chance to spawn a pathmaker
-				{
-					Instantiate(pathmakerPrefab, transform.position, transform.rotation);
-					pathCounter++;
-				}
-				
-				//move pathmaker, destroy it after a short-ish time
-				transform.Translate(0f, 0f, speed);
-				Instantiate(floorPrefab, transform.position, transform.rotation);
-				counter++;
-				globalTileCount++;
-				if (counter >= 25)
-				{
-					Destroy(gameObject);
-				}
+				transform.Rotate(0f, 90f, 0f);
+			} else if (range <= 0.20f)
+			{
+				transform.Rotate(0f, -90f, 0f);
+			} else if (range <= .25f) //VERY SMALL chance to spawn a pathmaker
+			{
+				Instantiate(pathmakerPrefab, transform.position, transform.rotation);
 			}
-		} else if (pathCounter > 7)
+			//move pathmaker, destroy it after a short-ish time
+			transform.Translate(0f, 0f, speed);
+			Instantiate(tiles[Random.Range(0,3)], transform.position, transform.rotation);
+			counter++;
+			globalTileCount++;
+			if (counter == maxTiles)
+			{
+				Instantiate(pathmakerPrefab, transform.position, transform.rotation);
+			}
+		} else
 		{
-			return;
+			Destroy(gameObject);
 		}
-		
-			
-
 	}
 }
