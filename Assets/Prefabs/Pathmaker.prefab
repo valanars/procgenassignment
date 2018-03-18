@@ -57,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f0781b63ef0f3417981e71c2dfc7345a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,9 +98,9 @@ MonoBehaviour:
   pathmakerPrefab: {fileID: 4639089895829534}
   speed: 5
   tiles:
-  - {fileID: 4736000547972656, guid: c9a03ead59079404ea8973c585f537f9, type: 2}
-  - {fileID: 4759013461882776, guid: 1e3b504d9f69240689053cc18839b737, type: 2}
-  - {fileID: 4225629101043790, guid: 6c10dd35d94264579a33da4633fcf219, type: 2}
+  - {fileID: 400000, guid: f23cfc459168048ffab5c38ba3d401a3, type: 3}
+  - {fileID: 400000, guid: 41896723577444649b950da3c1bbf5b6, type: 3}
+  - {fileID: 400000, guid: b7705db8390414052af95e6506da3042, type: 3}
 --- !u!135 &135707401829141148
 SphereCollider:
   m_ObjectHideFlags: 1
