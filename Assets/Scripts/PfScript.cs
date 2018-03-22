@@ -16,7 +16,7 @@ public class PfScript : MonoBehaviour {
 
 	public Transform pathmakerPrefab;
 
-	public float speed = 5f;
+	public float speed;
 
 	public static int globalTileCount = 0;
 
@@ -26,6 +26,7 @@ public class PfScript : MonoBehaviour {
 	void Start ()
 	{
 		maxTiles = Random.Range(1, 100);
+		speed = Random.Range(1, 4);
 	}
 	
 	// Update is called once per frame
