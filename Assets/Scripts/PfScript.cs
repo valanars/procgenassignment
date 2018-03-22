@@ -26,7 +26,7 @@ public class PfScript : MonoBehaviour {
 	void Start ()
 	{
 		maxTiles = Random.Range(1, 100);
-		speed = Random.Range(1, 4);
+		speed = Random.Range(1, 3);
 	}
 	
 	// Update is called once per frame
