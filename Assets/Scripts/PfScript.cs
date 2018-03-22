@@ -21,6 +21,9 @@ public class PfScript : MonoBehaviour {
 	public static int globalTileCount = 0;
 
 	public Transform[] tiles;
+
+	public int maxX = 0;
+	public int maxY = 0;
 	
 	// Use this for initialization
 	void Start ()
