@@ -8,6 +8,8 @@ using Random = UnityEngine.Random;
 
 public class PfScript : MonoBehaviour {
 
+
+
 	private float counter = 0;
 
 	private float maxTiles;
@@ -29,6 +31,11 @@ public class PfScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+
+
+	//public void ChangeSpeed (float slidenum){
+	//	speed = slidenum; 
+	//}
 	void Update () {
 
 		if (globalTileCount < 1000 && counter < 50)
