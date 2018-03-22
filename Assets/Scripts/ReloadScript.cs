@@ -18,11 +18,11 @@ public class ReloadScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if (Input.GetKey(KeyCode.R))
+		/*if (Input.GetKey(KeyCode.R))
 		{
 			PfScript.globalTileCount = 0;
 			SceneManager.LoadScene("Scene1");
-		}
+		}*/
 	}
 
 	void TaskOnClick (){
